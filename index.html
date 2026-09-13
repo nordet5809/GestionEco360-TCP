@@ -310,6 +310,13 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
 @media (min-width: 720px) { .servicios-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1280px) { .servicios-grid { grid-template-columns: repeat(4, 1fr); } }
 
+.servicios-extra {
+  margin-top: 2.4rem; padding-top: 2rem; border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.servicios-extra p { font-size: .98rem; color: var(--ink-soft); }
+
+
 /* Servicios puntuales — tabla editorial */
 .puntuales { padding: 60px 0 100px; }
 .puntuales-list { border-top: 1px solid var(--line); margin-top: 1rem; }
@@ -481,6 +488,76 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
   .ticker-track { animation: none; }
 }
 
+/* =============================================================
+   18. Portafolio
+   ============================================================= */
+.portafolio { padding: 100px 0; }
+
+.port-feature {
+  display: grid; gap: 2rem;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 20px;
+  padding: 2.2rem; margin-bottom: 2rem;
+}
+.port-tag {
+  display: inline-flex; font-family: var(--accentfont); font-size: .72rem; font-weight: 600;
+  letter-spacing: .05em; text-transform: uppercase; color: var(--paper); background: var(--accent);
+  padding: .35rem .8rem; border-radius: 999px;
+}
+.port-feature-info h3 { font-size: 1.5rem; margin-top: .8rem; max-width: 22ch; }
+.port-feature-info > p { margin-top: 1rem; color: var(--ink-soft); font-size: 1rem; }
+.port-list { margin-top: 1.2rem; display: grid; gap: .5rem; }
+.port-list li { font-size: .9rem; color: var(--ink-soft); padding-left: 1.2rem; position: relative; }
+.port-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+.port-note { margin-top: 1.3rem; font-size: .85rem; font-weight: 600; color: var(--accent-ink); }
+
+.port-calc {
+  background: var(--bg); border-radius: 16px; padding: 1.8rem;
+}
+.port-calc-title { font-family: var(--accentfont); font-weight: 700; font-size: 1rem; }
+.port-calc-title span { font-family: var(--sans); font-weight: 400; font-size: .78rem; color: var(--ink-soft); }
+.port-calc-field { display: block; margin-top: 1.3rem; }
+.port-calc-field span { display: block; font-size: .82rem; color: var(--ink-soft); margin-bottom: .5rem; }
+.port-calc-field input[type="range"] {
+  width: 100%; accent-color: var(--accent); height: 4px;
+}
+.port-calc-field output { display: block; margin-top: .4rem; font-family: var(--accentfont); font-weight: 700; color: var(--accent-ink); }
+.port-calc-results {
+  margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem;
+}
+.port-calc-results .lbl { display: block; font-size: .72rem; color: var(--ink-soft); }
+.port-calc-results .val { display: block; margin-top: .3rem; font-family: var(--accentfont); font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+.port-calc-disclaimer { margin-top: 1.2rem; font-size: .74rem; color: var(--ink-soft); line-height: 1.5; }
+
+.port-grid { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
+.port-card { position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 1.8rem; }
+.port-illust-badge {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  font-size: .66rem; font-weight: 600; letter-spacing: .03em; text-transform: uppercase;
+  color: var(--ink-soft); background: var(--bg); border: 1px solid var(--line);
+  padding: .25rem .6rem; border-radius: 999px;
+}
+.port-icon {
+  width: 42px; height: 42px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-ink);
+  display: flex; align-items: center; justify-content: center;
+}
+.port-icon svg { width: 20px; height: 20px; stroke: var(--accent-ink); }
+.port-card h3 { font-size: 1.1rem; margin-top: 1rem; }
+.port-role { font-size: .78rem; font-weight: 600; color: var(--ink-soft); margin-top: .3rem; }
+.port-card > p:not(.port-role) { font-size: .9rem; color: var(--ink-soft); margin-top: .8rem; }
+.port-tags { margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+.port-tags span { font-size: .74rem; padding: .3rem .7rem; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
+
+@media (min-width: 860px) {
+  .port-feature { grid-template-columns: 1.1fr .9fr; align-items: center; }
+}
+@media (min-width: 720px) {
+  .port-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1180px) {
+  .port-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
 </style>
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxQTFBMUEiLz4KICA8dGV4dCB4PSIzMiIgeT0iNDAiIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBJbnRlciwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIyMCIgZmlsbD0iI0Y1RjVGNSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R0U8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSI1MCIgcj0iMyIgZmlsbD0iIzVDNkIzRSIvPgo8L3N2Zz4K" type="image/svg+xml">
 </head>
@@ -500,6 +577,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
     </a>
     <nav class="nav-links" aria-label="Navegación principal">
       <a href="#servicios">Servicios</a>
+      <a href="#portafolio">Portafolio</a>
       <a href="#proceso">Cómo trabajamos</a>
       <a href="#cobertura">Cobertura</a>
       <a href="#faq">Preguntas</a>
@@ -510,6 +588,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
     </button>
     <div class="nav-mobile" id="navMobile">
       <a href="#servicios">Servicios</a>
+      <a href="#portafolio">Portafolio</a>
       <a href="#proceso">Cómo trabajamos</a>
       <a href="#cobertura">Cobertura</a>
       <a href="#faq">Preguntas</a>
@@ -606,6 +685,11 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
         <p class="reveal">Cada paquete se programa con entre 7 y 24 servicios de un catálogo fijo, según la complejidad y el volumen real de tu negocio. El precio mostrado es el mínimo mensual de entrada de cada paquete.</p>
       </div>
       <div class="servicios-grid" data-services></div>
+
+      <div class="servicios-extra reveal">
+        <p>¿Tu negocio también necesita presencia en internet?</p>
+        <a class="btn btn-ghost" data-whatsapp-web-cta href="#portafolio">Contrátame como desarrollador web</a>
+      </div>
     </div>
   </section>
 
@@ -652,6 +736,55 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
           <p>Ideal si tu negocio está fuera de La Habana o prefieres resolver todo por mensajería.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ PORTAFOLIO ============ -->
+  <section class="portafolio pattern-lines" id="portafolio">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal">Portafolio</p>
+        <h2 class="reveal">Números que cuadran, y tecnología que los presenta</h2>
+        <p class="reveal">Además de la consultoría contable y fiscal, diseño y desarrollo sitios web para negocios —incluyendo herramientas financieras funcionales integradas, no solo texto e imágenes.</p>
+      </div>
+
+      <!-- Caso destacado: desarrollo web + resultados financieros -->
+      <article class="port-feature reveal">
+        <div class="port-feature-info">
+          <span class="port-tag">Desarrollo web + modelado financiero</span>
+          <h3>Raíz Solar — landing comercial con calculadora de ahorro integrada</h3>
+          <p>Proyecto demostrativo para una instaladora de paneles solares: una landing page de venta con una calculadora financiera real, programada a medida, que estima el ahorro mensual y el tiempo de retorno de la inversión a partir de la factura eléctrica del cliente.</p>
+          <ul class="port-list">
+            <li>Front-end propio en HTML/CSS/JS, sin dependencias externas</li>
+            <li>Lógica financiera de ahorro y retorno de inversión, no una simple maqueta</li>
+            <li>Pensada para convertir una visita en una consulta comercial</li>
+          </ul>
+          <p class="port-note">Pruébala aquí abajo — es la misma calculadora del proyecto, en miniatura.</p>
+        </div>
+
+        <div class="port-calc" data-port-calc>
+          <p class="port-calc-title">Calculadora de ahorro solar <span>(demo funcional)</span></p>
+          <label class="port-calc-field">
+            <span>Factura eléctrica mensual actual (CUP)</span>
+            <input type="range" min="500" max="15000" step="100" value="4000" data-calc-bill>
+            <output data-calc-bill-out>4,000 CUP</output>
+          </label>
+          <label class="port-calc-field">
+            <span>Ahorro estimado con paneles</span>
+            <input type="range" min="40" max="90" step="5" value="70" data-calc-pct>
+            <output data-calc-pct-out>70%</output>
+          </label>
+          <div class="port-calc-results">
+            <div><span class="lbl">Ahorro mensual</span><span class="val" data-calc-monthly>—</span></div>
+            <div><span class="lbl">Ahorro anual</span><span class="val" data-calc-yearly>—</span></div>
+            <div><span class="lbl">Retorno estimado*</span><span class="val" data-calc-payback>—</span></div>
+          </div>
+          <p class="port-calc-disclaimer">*Estimación ilustrativa sobre una inversión de referencia de 350,000 CUP. No es asesoría financiera ni una cifra garantizada; cada instalación real se calcula caso por caso.</p>
+        </div>
+      </article>
+
+      <!-- Otros proyectos -->
+      <div class="port-grid" data-portafolio></div>
     </div>
   </section>
 
@@ -839,8 +972,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
       "Informes periódicos a dirección o socios",
       "Capacitación al personal en gestión contable",
       "Gestión documental digital",
-      "Alertas de vencimientos fiscales",
-      "Creación y diseño de página web para tu negocio"
+      "Alertas de vencimientos fiscales"
     ],
 
     proceso: [
@@ -887,6 +1019,44 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
       "Proyecto de trabajo registrado — No. 1214902, actividad 6920",
       "Más de 30 años de experiencia y formación de nivel superior",
       "Atención personalizada y directa, sin intermediarios"
+    ],
+
+    /* Proyectos propios. Los 3 casos de consultoría financiera / Excel son
+       ejemplos ilustrativos del tipo de trabajo que se realiza —no
+       corresponden a un cliente real identificable— y están marcados
+       como tales en pantalla (ver flag "ilustrativo"). */
+    portafolio: [
+      {
+        icono: "book",
+        nombre: "Gestión Eco 360",
+        rol: "Marca personal propia",
+        texto: "Diseño de marca y desarrollo de esta misma landing page: identidad visual, paquetes configurables y contenido, en un solo archivo autónomo.",
+        tags: ["HTML/CSS/JS", "Identidad de marca", "Un solo archivo"]
+      },
+      {
+        icono: "diagnostico",
+        nombre: "Diagnóstico financiero a un TCP gastronómico",
+        rol: "Consultoría financiera",
+        ilustrativo: true,
+        texto: "El dueño de un negocio de comida no sabía si sus precios cubrían el costo real de cada platillo. El diagnóstico desglosó costos fijos y variables por producto y reveló que dos platillos se vendían por debajo de su costo de ingredientes.",
+        tags: ["Estructura de costos", "Margen por producto"]
+      },
+      {
+        icono: "hoja",
+        nombre: "Modelo de punto de equilibrio en Excel para una MIPYME",
+        rol: "Desarrollo de software en Excel",
+        ilustrativo: true,
+        texto: "Una MIPYME necesitaba saber cuánto tenía que vender cada mes para no perder dinero. Se construyó un modelo en Excel que calcula el punto de equilibrio y proyecta el flujo de caja a 12 meses, simulando distintos escenarios de precio y volumen.",
+        tags: ["Excel avanzado", "Punto de equilibrio", "Flujo de caja"]
+      },
+      {
+        icono: "nomina",
+        nombre: "Plantilla de nóminas en Excel para un TCP con empleados",
+        rol: "Desarrollo de software en Excel",
+        ilustrativo: true,
+        texto: "El cálculo manual de nóminas y aportes a la Seguridad Social era lento y propenso a errores. Se desarrolló una plantilla en Excel que calcula automáticamente la nómina, los aportes correspondientes y alerta de los vencimientos de pago.",
+        tags: ["Excel avanzado", "Nóminas", "Automatización"]
+      }
     ]
   };
 })();
@@ -977,6 +1147,71 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
     }
   }
 
+  var portIcons = {
+    book: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5c-.8 0-1.5-.7-1.5-1.5v-13Z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5c.8 0 1.5-.7 1.5-1.5v-13Z"/></svg>',
+    diagnostico: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11h6M11 8v6"/></svg>',
+    hoja: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 10h16M4 15h16M10 4v16M15 4v16"/></svg>',
+    nomina: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M7 14h4M7 16.5h2"/><circle cx="16" cy="14.5" r="1.6"/></svg>'
+  };
+
+
+  function mountPortafolio() {
+    var target = $("[data-portafolio]");
+    if (!target || target.children.length > 0 || !data.portafolio) return;
+    target.innerHTML = data.portafolio.map(function (p) {
+      return (
+        '<article class="port-card reveal">' +
+          (p.ilustrativo ? '<span class="port-illust-badge">Ejemplo ilustrativo</span>' : "") +
+          '<span class="port-icon">' + (portIcons[p.icono] || "") + "</span>" +
+          "<h3>" + escHTML(p.nombre) + "</h3>" +
+          '<p class="port-role">' + escHTML(p.rol) + "</p>" +
+          "<p>" + escHTML(p.texto) + "</p>" +
+          '<div class="port-tags">' + p.tags.map(function (t) { return "<span>" + escHTML(t) + "</span>"; }).join("") + "</div>" +
+        "</article>"
+      );
+    }).join("");
+  }
+
+  function initPortCalc() {
+    var calc = $("[data-port-calc]");
+    if (!calc) return;
+    var bill = $("[data-calc-bill]", calc);
+    var pct = $("[data-calc-pct]", calc);
+    var billOut = $("[data-calc-bill-out]", calc);
+    var pctOut = $("[data-calc-pct-out]", calc);
+    var monthlyOut = $("[data-calc-monthly]", calc);
+    var yearlyOut = $("[data-calc-yearly]", calc);
+    var paybackOut = $("[data-calc-payback]", calc);
+    if (!bill || !pct) return;
+
+    var REF_COST = 350000; // CUP, costo de referencia usado solo para ilustrar el cálculo
+
+    function fmt(n) {
+      return Math.round(n).toLocaleString("es-CU") + " CUP";
+    }
+
+    function update() {
+      var billVal = parseFloat(bill.value) || 0;
+      var pctVal = parseFloat(pct.value) || 0;
+      var monthlySaving = billVal * (pctVal / 100);
+      var yearlySaving = monthlySaving * 12;
+      billOut.textContent = fmt(billVal);
+      pctOut.textContent = pctVal + "%";
+      monthlyOut.textContent = fmt(monthlySaving);
+      yearlyOut.textContent = fmt(yearlySaving);
+      if (yearlySaving > 0) {
+        var years = REF_COST / yearlySaving;
+        paybackOut.textContent = years >= 1 ? years.toFixed(1) + " años" : Math.round(years * 12) + " meses";
+      } else {
+        paybackOut.textContent = "—";
+      }
+    }
+
+    bill.addEventListener("input", update);
+    pct.addEventListener("input", update);
+    update();
+  }
+
   function mountFaq() {
     var target = $("[data-faq]");
     if (!target || target.children.length > 0 || !data.faqs) return;
@@ -1005,6 +1240,9 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
     var e = $("[data-email]"); if (e) e.textContent = data.email || "";
     var wd = $("[data-whatsapp-display]"); if (wd) wd.textContent = data.whatsappDisplay || "";
     $$("[data-whatsapp-cta]").forEach(function (el) { if (data.whatsapp) el.setAttribute("href", data.whatsapp); });
+    $$("[data-whatsapp-web-cta]").forEach(function (el) {
+      if (data.whatsapp) el.setAttribute("href", data.whatsapp + "?text=" + encodeURIComponent("Hola Mario, vi tu portafolio y me interesa una web para mi negocio."));
+    });
     $$("[data-mailto-cta]").forEach(function (el) { if (data.email) el.setAttribute("href", "mailto:" + data.email); });
   }
 
@@ -1180,6 +1418,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
     safe(mountMenuServicios, "mountMenuServicios");
     safe(mountProceso, "mountProceso");
     safe(mountCobertura, "mountCobertura");
+    safe(mountPortafolio, "mountPortafolio");
     safe(mountFaq, "mountFaq");
     safe(mountContact, "mountContact");
 
@@ -1187,6 +1426,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.08; letter-spacing: -0.02em;
     safe(initReveals, "initReveals");
     safe(initCountUp, "initCountUp");
     safe(initTilt, "initTilt");
+    safe(initPortCalc, "initPortCalc");
     safe(initFaqAccordion, "initFaqAccordion");
     safe(initAnchorScroll, "initAnchorScroll");
     safe(initYear, "initYear");
