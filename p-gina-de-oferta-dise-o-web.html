@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#071b22" />
+  <link rel="icon" href="data:," />
+  <title>Landing pages para negocios en Cuba</title>
+  <meta name="description" content="Landing pages profesionales para presentar, convencer y llevar clientes directo a WhatsApp." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --ink: #071b22;
+      --muted: #50636a;
+      --paper: #f4f8f6;
+      --surface: #ffffff;
+      --line: #cbd8d4;
+      --accent: #e74f2b;
+      --accent-ink: #ffffff;
+      --aqua: #99f5dd;
+      --deep: #071b22;
+      --deep-muted: #b8c9c5;
+      --shadow: 0 22px 70px rgba(7, 27, 34, .13);
+      --radius-sm: 12px;
+      --radius-md: 24px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #eef8f5;
+        --muted: #afc2bd;
+        --paper: #071418;
+        --surface: #0d2228;
+        --line: #294249;
+        --accent: #ff6a45;
+        --accent-ink: #08161a;
+        --aqua: #70d9c0;
+        --deep: #020b0e;
+        --deep-muted: #a8bbb6;
+        --shadow: 0 22px 70px rgba(0, 0, 0, .34);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+
+    .hero {
+      min-height: 760px;
+      background: var(--deep);
+      color: #f7fffc;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -8vw;
+      top: -12vw;
+      width: 52vw;
+      aspect-ratio: 1;
+      border: 1px solid rgba(153, 245, 221, .25);
+      border-radius: 50%;
+      box-shadow: 0 0 0 80px rgba(153, 245, 221, .035), 0 0 0 160px rgba(153, 245, 221, .025);
+      z-index: -1;
+    }
+    .hero-grid {
+      min-height: 760px;
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      gap: clamp(40px, 7vw, 100px);
+      align-items: center;
+      padding: 72px 0 82px;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 22px;
+      color: var(--aqua);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 24px;
+      max-width: 700px;
+      font-family: "Libre Caslon Display", Georgia, serif;
+      font-size: clamp(3.4rem, 7.2vw, 7rem);
+      line-height: .95;
+      letter-spacing: -.045em;
+      font-weight: 400;
+    }
+    .hero-copy {
+      color: #c7d9d4;
+      max-width: 600px;
+      font-size: clamp(1.08rem, 1.6vw, 1.25rem);
+      margin-bottom: 34px;
+    }
+    .actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .btn {
+      min-height: 54px;
+      padding: 0 24px;
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: background .18s ease, transform .18s ease;
+    }
+    .btn:hover { background: #f26441; transform: translateY(-2px); }
+    .btn:focus-visible, .faq-question:focus-visible { outline: 3px solid var(--aqua); outline-offset: 4px; }
+    .btn svg { width: 20px; height: 20px; flex: none; }
+    .price-note { color: #adc1bc; font-size: .92rem; }
+    .price-note strong { color: #fff; font-size: 1.05rem; }
+
+    .browser {
+      position: relative;
+      background: #f7f5ef;
+      color: #102227;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 22px 22px 8px 8px;
+      box-shadow: 0 34px 90px rgba(0,0,0,.36);
+      transform: rotate(1.4deg);
+      overflow: hidden;
+    }
+    .browser-bar { height: 42px; background: #e4e1d9; display: flex; align-items: center; gap: 7px; padding: 0 15px; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #9ba29e; }
+    .browser-body { padding: 34px 34px 28px; }
+    .mini-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 42px; font-size: .7rem; font-weight: 700; }
+    .mini-links { display: flex; gap: 12px; color: #6f7975; font-size: .58rem; }
+    .mini-tag { color: #d74728; font-size: .56rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
+    .mini-title { font: 400 clamp(2rem, 4.1vw, 4.2rem)/.98 "Libre Caslon Display", Georgia, serif; letter-spacing: -.04em; max-width: 390px; margin: 9px 0 18px; }
+    .mini-copy { max-width: 330px; font-size: .72rem; line-height: 1.6; color: #63716d; }
+    .mini-btn { display: inline-block; margin-top: 20px; padding: 10px 14px; background: #082127; color: white; border-radius: 7px; font-size: .64rem; font-weight: 700; }
+    .mini-stats { margin-top: 42px; border-top: 1px solid #d8d6cf; padding-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .mini-stat b { display: block; font: 400 1.2rem "Libre Caslon Display", Georgia, serif; }
+    .mini-stat span { color: #7a847f; font-size: .52rem; }
+    .accent-card {
+      position: absolute;
+      right: -24px;
+      bottom: 36px;
+      width: 158px;
+      padding: 18px;
+      background: var(--aqua);
+      color: #082127;
+      box-shadow: 0 16px 36px rgba(0,0,0,.22);
+      transform: rotate(-3deg);
+    }
+    .accent-card span { display: block; font-size: .61rem; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+    .accent-card strong { font-family: "Libre Caslon Display", Georgia, serif; font-size: 1.45rem; line-height: 1.1; font-weight: 400; }
+
+    .signal { background: var(--aqua); color: #092026; }
+    .signal .wrap { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+    .signal-item { padding: 24px 28px; border-left: 1px solid rgba(7,27,34,.2); display: flex; gap: 14px; align-items: flex-start; }
+    .signal-item:first-child { border-left: 0; }
+    .signal-num { font-family: "Libre Caslon Display", Georgia, serif; font-size: 1.6rem; line-height: 1; }
+    .signal-item p { margin: 0; font-size: .9rem; line-height: 1.35; }
+
+    section { padding: clamp(76px, 10vw, 128px) 0; }
+    .section-head { display: grid; grid-template-columns: .72fr 1.28fr; gap: 48px; align-items: end; margin-bottom: 58px; }
+    .section-head .label { color: var(--accent); font-weight: 700; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; }
+    h2 {
+      margin-bottom: 0;
+      font-family: "Libre Caslon Display", Georgia, serif;
+      font-size: clamp(2.45rem, 5vw, 5rem);
+      line-height: 1;
+      letter-spacing: -.035em;
+      font-weight: 400;
+    }
+    .deliverables { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
+    .deliverable { padding: 30px 22px 32px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 44px 1fr; gap: 16px; }
+    .deliverable:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 34px; }
+    .deliverable:nth-child(even) { padding-left: 34px; }
+    .icon {
+      width: 40px; height: 40px; border: 1px solid var(--ink); border-radius: 50%;
+      display: grid; place-items: center; color: var(--accent);
+    }
+    .icon svg { width: 19px; height: 19px; }
+    .deliverable h3 { font-size: 1.08rem; margin-bottom: 7px; }
+    .deliverable p { color: var(--muted); margin: 0; font-size: .94rem; max-width: 440px; }
+
+    .offer { background: var(--deep); color: #f4fffb; }
+    .offer-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 76px; align-items: start; }
+    .offer h2 { max-width: 520px; }
+    .offer-intro { color: var(--deep-muted); margin: 24px 0 0; max-width: 500px; }
+    .price-panel { background: #f5f2eb; color: #102227; padding: clamp(30px, 5vw, 54px); box-shadow: var(--shadow); }
+    .price-line { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid #c9cec8; padding-bottom: 24px; margin-bottom: 26px; }
+    .from { font-size: .78rem; color: #687571; text-transform: uppercase; letter-spacing: .1em; }
+    .amount { font: 400 clamp(3.9rem, 7vw, 6.6rem)/.8 "Libre Caslon Display", Georgia, serif; letter-spacing: -.06em; }
+    .currency { font-weight: 700; }
+    .price-panel ul { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 13px; }
+    .price-panel li { display: flex; gap: 10px; align-items: flex-start; }
+    .price-panel li svg { width: 18px; height: 18px; margin-top: 3px; color: #cf4628; flex: none; }
+    .price-panel .btn { width: 100%; }
+    .legal-note { margin: 16px 0 0; color: #65716d; font-size: .77rem; line-height: 1.5; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+    .step { padding: 34px 34px 0 0; }
+    .step + .step { border-left: 1px solid var(--line); padding-left: 34px; }
+    .step b { display: block; color: var(--accent); font: 400 2rem "Libre Caslon Display", Georgia, serif; margin-bottom: 42px; }
+    .step h3 { margin-bottom: 10px; font-size: 1.12rem; }
+    .step p { color: var(--muted); margin: 0; }
+
+    .faq-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .faq-title p { color: var(--muted); margin: 24px 0 0; max-width: 360px; }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-question {
+      width: 100%; padding: 24px 0; border: 0; background: transparent; color: var(--ink); font: 600 1rem "DM Sans", sans-serif;
+      text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 18px; cursor: pointer; list-style: none;
+    }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-question::marker { content: ""; }
+    .faq-question svg { width: 18px; height: 18px; flex: none; transition: transform .2s ease; }
+    .faq-item[open] .faq-question svg { transform: rotate(45deg); }
+    .faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .22s ease; }
+    .faq-answer > div { overflow: hidden; }
+    .faq-answer p { color: var(--muted); padding: 0 34px 22px 0; margin: 0; }
+    .faq-item[open] .faq-answer { grid-template-rows: 1fr; }
+
+    .final { padding-top: 24px; }
+    .final-box { background: var(--accent); color: var(--accent-ink); padding: clamp(42px, 8vw, 92px); display: grid; grid-template-columns: 1.3fr .7fr; gap: 50px; align-items: center; }
+    .final-box h2 { max-width: 700px; }
+    .final-box p { margin: 22px 0 0; max-width: 620px; }
+    .final-box .btn { background: var(--deep); color: #fff; justify-self: end; min-width: 240px; }
+    .final-box .btn:hover { background: #15353e; }
+    footer { padding: 34px 0 calc(34px + env(safe-area-inset-bottom)); color: var(--muted); font-size: .82rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+
+    .mobile-cta { display: none; }
+
+    @media (max-width: 860px) {
+      .hero, .hero-grid { min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; padding: 64px 0 88px; }
+      h1 { max-width: 620px; }
+      .visual { width: min(600px, 92%); margin-left: auto; }
+      .section-head, .offer-layout, .faq-wrap { grid-template-columns: 1fr; gap: 32px; }
+      .section-head { align-items: start; }
+      .offer-layout { gap: 48px; }
+      .final-box { grid-template-columns: 1fr; }
+      .final-box .btn { justify-self: start; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      .hero-grid { padding: 46px 0 68px; gap: 58px; }
+      h1 { font-size: clamp(3rem, 16vw, 4.4rem); }
+      .hero-copy { font-size: 1.04rem; }
+      .actions { align-items: flex-start; flex-direction: column; }
+      .browser { transform: none; border-radius: 16px 16px 6px 6px; }
+      .browser-body { padding: 24px 22px 22px; }
+      .mini-nav { margin-bottom: 30px; }
+      .mini-links { display: none; }
+      .accent-card { right: -8px; bottom: 22px; width: 136px; }
+      .signal .wrap { grid-template-columns: 1fr; }
+      .signal-item { border-left: 0; border-top: 1px solid rgba(7,27,34,.2); padding: 18px 4px; }
+      .signal-item:first-child { border-top: 0; }
+      section { padding: 76px 0; }
+      .section-head { margin-bottom: 38px; }
+      .deliverables { grid-template-columns: 1fr; }
+      .deliverable, .deliverable:nth-child(odd), .deliverable:nth-child(even) { border-right: 0; padding: 24px 0; }
+      .price-panel { margin-inline: -2px; }
+      .price-line { flex-wrap: wrap; }
+      .process-grid { grid-template-columns: 1fr; }
+      .step, .step + .step { padding: 26px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+      .step b { margin-bottom: 18px; }
+      .final { padding: 0; }
+      .final .wrap { width: 100%; }
+      .final-box { padding: 58px 24px; }
+      footer { padding-bottom: calc(98px + env(safe-area-inset-bottom)); }
+      .mobile-cta {
+        position: fixed; z-index: 20; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom));
+        display: flex; min-height: 56px; background: var(--accent); color: var(--accent-ink); border-radius: 12px;
+        align-items: center; justify-content: center; gap: 10px; font-weight: 700; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,.28);
+      }
+      .mobile-cta svg { width: 20px; height: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Diseño web para negocios en Cuba</p>
+          <h1>Tu negocio merece una página que venda.</h1>
+          <p class="hero-copy">Creamos una landing page clara, rápida y profesional para presentar tu oferta, ganar confianza y convertir visitas en conversaciones por WhatsApp.</p>
+          <div class="actions">
+            <a class="btn wa-link" href="https://wa.me/5353237783?text=Hola%2C%20vi%20la%20oferta%20de%20landing%20page%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Solicitar una landing page por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.2l1.1-4a8.4 8.4 0 1 1 15.4-4.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.2.6 0l.8-.9c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1.2-.8 1.7-.5.4-1.2.6-2 .4-1.1-.2-2.6-.8-4.2-2.2-1.3-1.2-2.2-2.6-2.5-3.7-.3-1 0-1.7.4-2.3Z" fill="currentColor"/></svg>
+              Quiero mi landing page
+            </a>
+            <span class="price-note"><strong>Desde 80 USD</strong><br />o equivalente en CUP*</span>
+          </div>
+        </div>
+
+        <div class="visual" aria-label="Vista conceptual de una landing page profesional">
+          <div class="browser">
+            <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="browser-body">
+              <div class="mini-nav"><span>TU NEGOCIO</span><span class="mini-links"><i>Servicios</i><i>Nosotros</i><i>Contacto</i></span></div>
+              <span class="mini-tag">Hecho para avanzar</span>
+              <div class="mini-title">Una idea clara merece una gran presentación.</div>
+              <p class="mini-copy">Estructura, mensaje y diseño alineados para que la próxima acción de tu cliente sea evidente.</p>
+              <span class="mini-btn">CONVERSAR AHORA →</span>
+              <div class="mini-stats">
+                <div class="mini-stat"><b>01</b><span>Mensaje directo</span></div>
+                <div class="mini-stat"><b>02</b><span>Diseño adaptable</span></div>
+                <div class="mini-stat"><b>03</b><span>Contacto visible</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="accent-card"><span>Resultado</span><strong>Más confianza. Menos fricción.</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="signal" aria-label="Beneficios principales">
+      <div class="wrap">
+        <div class="signal-item"><span class="signal-num">01</span><p>Una oferta fácil de entender en segundos.</p></div>
+        <div class="signal-item"><span class="signal-num">02</span><p>Diseño que se adapta al móvil y la computadora.</p></div>
+        <div class="signal-item"><span class="signal-num">03</span><p>Contacto directo con tu negocio por WhatsApp.</p></div>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label">Tu página incluye</span>
+          <h2>Todo lo necesario para presentar tu negocio con nivel.</h2>
+        </div>
+        <div class="deliverables">
+          <article class="deliverable">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h6M8 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div><h3>Estructura estratégica</h3><p>Organizamos la información para que el visitante entienda qué ofreces, por qué elegirte y cómo contactarte.</p></div>
+          </article>
+          <article class="deliverable">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h14v11H5zM9 20h6M12 15v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 8h4M8 11h8" stroke="currentColor" stroke-width="1.8"/></svg></span>
+            <div><h3>Diseño personalizado</h3><p>Colores, tipografías y composición creados alrededor de la identidad y el público de tu negocio.</p></div>
+          </article>
+          <article class="deliverable">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M10 18.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div><h3>Adaptación a todos los equipos</h3><p>Una experiencia cuidada en teléfonos, tabletas y computadoras, sin obligar al cliente a ampliar o desplazarse de lado.</p></div>
+          </article>
+          <article class="deliverable">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div><h3>WhatsApp como acción principal</h3><p>Botones visibles y un mensaje inicial preparado para reducir pasos y facilitar la conversación comercial.</p></div>
+          </article>
+          <article class="deliverable">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 18 12 5l8 13H4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9.5 15 2-3 1.5 2 1-1 2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><h3>Textos e imágenes bien presentados</h3><p>Jerarquía clara para tus servicios, ventajas, testimonios o productos, según la información que nos entregues.</p></div>
+          </article>
+          <article class="deliverable">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><h3>Revisión antes de publicar</h3><p>Validamos contigo el contenido y los detalles finales. El alcance, plazo y forma de publicación quedan acordados antes de comenzar.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="offer" id="oferta">
+      <div class="wrap offer-layout">
+        <div>
+          <p class="eyebrow">Oferta de lanzamiento</p>
+          <h2>Una inversión pequeña para dar una impresión grande.</h2>
+          <p class="offer-intro">Ideal para profesionales, restaurantes, alojamientos, servicios técnicos, comercios y nuevos emprendimientos que necesitan una presencia digital directa.</p>
+        </div>
+        <div class="price-panel">
+          <div class="price-line"><span class="from">Desde</span><span class="amount">80</span><span class="currency">USD</span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Landing page profesional de una sola página</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Diseño adaptable, rápido y orientado al contacto</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Llamada a la acción enlazada a tu WhatsApp</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ajustes finales dentro del alcance acordado</span></li>
+          </ul>
+          <a class="btn wa-link" href="https://wa.me/5353237783?text=Hola%2C%20vi%20la%20oferta%20de%20landing%20page%20desde%2080%20USD%20y%20quiero%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener">Solicitar cotización por WhatsApp →</a>
+          <p class="legal-note">*El equivalente en CUP se calcula con la tasa oficial del BCC, segmento III, vigente en la fecha de contratación, conforme a la NEC 17. Dominio, alojamiento y requerimientos adicionales se cotizan según la solución acordada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label">Cómo trabajamos</span>
+          <h2>De tu idea a una página lista para mostrar.</h2>
+        </div>
+        <div class="process-grid">
+          <article class="step"><b>01</b><h3>Conversamos</h3><p>Nos cuentas qué haces, a quién ayudas y qué quieres que haga el visitante.</p></article>
+          <article class="step"><b>02</b><h3>Diseñamos</h3><p>Convertimos tu contenido en una experiencia visual clara, coherente y adaptable.</p></article>
+          <article class="step"><b>03</b><h3>Revisamos y publicamos</h3><p>Ajustamos los detalles contigo y dejamos lista la versión final en la opción de publicación acordada.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap faq-wrap">
+        <div class="faq-title"><h2>Preguntas claras antes de empezar.</h2><p>Lo importante queda definido en la cotización: alcance, contenido, publicación, plazo y forma de pago.</p></div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">¿Qué necesito entregar?<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+            <div class="faq-answer"><div><p>La información básica del negocio, servicios o productos, datos de contacto y las imágenes disponibles. Si algo falta, te orientamos sobre cómo organizarlo.</p></div></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">¿Puedo usar mi propio dominio?<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+            <div class="faq-answer"><div><p>Sí. Si ya tienes dominio o alojamiento, revisamos la opción de publicación. Si no, cotizamos una alternativa adecuada para tu caso.</p></div></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">¿La página se verá bien en el teléfono?<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+            <div class="faq-answer"><div><p>Sí. El diseño se prepara para responder correctamente en teléfonos, tabletas y computadoras.</p></div></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">¿Puedo pedir funciones adicionales?<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+            <div class="faq-answer"><div><p>Sí. Galerías, catálogos, formularios u otras funciones pueden incorporarse según viabilidad y se cotizan aparte antes de iniciar.</p></div></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap">
+        <div class="final-box">
+          <div><h2>Tu próxima conversación puede comenzar aquí.</h2><p>Cuéntanos qué negocio quieres presentar y te respondemos con una propuesta ajustada a tu objetivo.</p></div>
+          <a class="btn wa-link" href="https://wa.me/5353237783?text=Hola%2C%20quiero%20una%20landing%20page%20para%20mi%20negocio.%20Mi%20actividad%20es%3A%20" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><span>Gestión Eco 360 · Diseño web para negocios</span><span>WhatsApp: +53 5323 7783</span></div>
+  </footer>
+
+  <a class="mobile-cta wa-link" href="https://wa.me/5353237783?text=Hola%2C%20vi%20la%20oferta%20de%20landing%20page%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.2l1.1-4a8.4 8.4 0 1 1 15.4-4.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.2.6 0l.8-.9c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1.2-.8 1.7-.5.4-1.2.6-2 .4-1.1-.2-2.6-.8-4.2-2.2-1.3-1.2-2.2-2.6-2.5-3.7-.3-1 0-1.7.4-2.3Z" fill="currentColor"/></svg>
+    Quiero mi landing page
+  </a>
+
+</body>
+</html>
