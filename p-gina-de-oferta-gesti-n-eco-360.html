@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Servicios contables y fiscales para TCP y MIPYMEs en Cuba. Registro, impuestos y control financiero con Gestión Eco 360." />
+  <link rel="icon" href="data:," />
+  <title>Oferta contable para TCP y MIPYMEs | Gestión Eco 360</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f6f2;
+      --surface: #ffffff;
+      --surface-2: #e8eee8;
+      --surface-3: #dbe5dc;
+      --ink: #17201a;
+      --muted: #536057;
+      --line: #cbd5cd;
+      --green: #123d2a;
+      --green-2: #1f6848;
+      --green-3: #95c5a8;
+      --gold: #a97619;
+      --gold-soft: #f3e3bc;
+      --danger: #8d3b2c;
+      --shadow: 0 22px 55px rgba(22, 49, 34, .12);
+      --shadow-soft: 0 10px 28px rgba(22, 49, 34, .08);
+      --radius-lg: 30px;
+      --radius-md: 18px;
+      --radius-sm: 11px;
+      --max: 1160px;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", Helvetica, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1511;
+        --surface: #142019;
+        --surface-2: #192a20;
+        --surface-3: #21382a;
+        --ink: #f1f5f1;
+        --muted: #b7c3ba;
+        --line: #304537;
+        --green: #9bd8b1;
+        --green-2: #79c899;
+        --green-3: #28583b;
+        --gold: #e0b55e;
+        --gold-soft: #4b3a19;
+        --danger: #ef947f;
+        --shadow: 0 24px 60px rgba(0, 0, 0, .38);
+        --shadow-soft: 0 12px 30px rgba(0, 0, 0, .24);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background:
+        linear-gradient(rgba(18, 61, 42, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 61, 42, .025) 1px, transparent 1px),
+        var(--bg);
+      background-size: 42px 42px;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    svg { display: block; }
+
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    }
+
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav { display: flex; gap: 4px; align-items: center; }
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 650;
+      padding: 9px 12px;
+      border-radius: 999px;
+    }
+    .nav a:hover, .nav a:focus-visible { color: var(--ink); background: var(--surface-2); outline: none; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 11px 18px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--green);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 780;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    @media (prefers-color-scheme: dark) { .button { color: #0c2417; } }
+    .button:hover { transform: translateY(-1px); background: var(--green-2); }
+    .button:focus-visible { outline: 3px solid color-mix(in srgb, var(--green-2) 40%, transparent); outline-offset: 3px; }
+    .button.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+    .button.secondary:hover { background: var(--surface); }
+    .button.compact { min-height: 42px; padding: 9px 15px; font-size: .88rem; }
+
+    .hero { padding: clamp(56px, 8vw, 110px) 0 72px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      right: -220px;
+      top: -120px;
+      border: 1px solid color-mix(in srgb, var(--green-2) 28%, transparent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 70px color-mix(in srgb, var(--green-2) 5%, transparent), 0 0 0 145px color-mix(in srgb, var(--green-2) 3%, transparent);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(46px, 7vw, 88px); align-items: center; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      color: var(--green-2);
+      font-weight: 780;
+      letter-spacing: .025em;
+      font-size: .88rem;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: currentColor; }
+    h1, h2, h3 { margin: 0; color: var(--ink); }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6.6vw, 6.1rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      max-width: 800px;
+      font-weight: 700;
+    }
+    h1 .accent { color: var(--green-2); }
+    .lead { max-width: 670px; margin: 28px 0 0; font-size: clamp(1.05rem, 2vw, 1.24rem); color: var(--muted); line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
+    .proof-row { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 30px; color: var(--muted); font-size: .9rem; }
+    .proof { display: inline-flex; align-items: center; gap: 8px; }
+    .proof svg { color: var(--green-2); flex: 0 0 auto; }
+
+    .hero-visual { position: relative; padding: 20px 0; }
+    .ledger {
+      position: relative;
+      min-height: 500px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px 28px 28px 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: rotate(1.2deg);
+    }
+    .ledger::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 32px;
+      width: 1px;
+      background: color-mix(in srgb, var(--danger) 28%, transparent);
+    }
+    .ledger-top { padding: 30px 34px 24px 54px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; }
+    .ledger-kicker { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 800; }
+    .ledger-title { font-family: var(--serif); font-size: 1.7rem; line-height: 1.1; margin-top: 4px; }
+    .seal {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      transform: rotate(-7deg);
+      flex: 0 0 auto;
+    }
+    .ledger-list { list-style: none; margin: 0; padding: 8px 34px 28px 54px; }
+    .ledger-list li { display: grid; grid-template-columns: 34px 1fr; gap: 13px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .ledger-list li:last-child { border-bottom: 0; }
+    .checkmark { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--surface-2); color: var(--green-2); margin-top: 1px; }
+    .ledger-list strong { display: block; font-size: 1.02rem; }
+    .ledger-list span { color: var(--muted); font-size: .9rem; }
+    .gold-tab { position: absolute; right: -13px; bottom: 80px; padding: 13px 16px; background: var(--gold); color: #fff; font-weight: 800; border-radius: 10px 0 0 10px; box-shadow: var(--shadow-soft); }
+
+    section { padding: 86px 0; }
+    .section-head { display: grid; grid-template-columns: .72fr 1.28fr; gap: 50px; align-items: end; margin-bottom: 44px; }
+    .section-head h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 4.1rem); letter-spacing: -.035em; line-height: 1.05; }
+    .section-head p { margin: 0; max-width: 650px; color: var(--muted); font-size: 1.05rem; }
+
+    .service-band { background: var(--green); color: #eef7f1; }
+    @media (prefers-color-scheme: dark) { .service-band { background: #102c1e; } }
+    .service-band h2, .service-band h3 { color: #fff; }
+    .service-band .section-head p { color: #c7d9ce; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.18); border-top: 1px solid rgba(255,255,255,.18); border-bottom: 1px solid rgba(255,255,255,.18); }
+    .service { background: var(--green); padding: 34px 28px 38px; }
+    @media (prefers-color-scheme: dark) { .service { background: #102c1e; } }
+    .service-num { color: var(--green-3); font-family: var(--serif); font-size: 1.7rem; margin-bottom: 44px; }
+    .service h3 { font-family: var(--serif); font-size: 1.65rem; margin-bottom: 10px; }
+    .service p { color: #c7d9ce; margin: 0; }
+
+    .pricing { background: var(--surface-2); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+    .plan {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 30px 28px 27px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      box-shadow: var(--shadow-soft);
+    }
+    .plan.featured { border: 2px solid var(--green-2); position: relative; padding-top: 38px; }
+    .plan-badge { position: absolute; left: 24px; top: -14px; background: var(--green-2); color: white; padding: 6px 12px; border-radius: 999px; font-size: .76rem; font-weight: 800; }
+    .plan-label { color: var(--green-2); font-weight: 800; font-size: .87rem; margin-bottom: 4px; }
+    .plan h3 { font-family: var(--serif); font-size: 2rem; letter-spacing: -.02em; }
+    .price { margin: 18px 0 2px; display: flex; align-items: baseline; gap: 6px; }
+    .price strong { font-family: var(--serif); font-size: 2.55rem; line-height: 1; letter-spacing: -.035em; }
+    .price span { color: var(--muted); font-size: .88rem; }
+    .plan-desc { color: var(--muted); min-height: 52px; margin: 12px 0 22px; font-size: .93rem; }
+    .plan ul { list-style: none; padding: 0; margin: 0 0 26px; display: grid; gap: 12px; }
+    .plan li { position: relative; padding-left: 25px; font-size: .93rem; }
+    .plan li::before { content: "✓"; position: absolute; left: 0; top: -1px; color: var(--green-2); font-weight: 900; }
+    .plan .button { margin-top: auto; width: 100%; }
+
+    .promo { margin-top: 26px; display: grid; grid-template-columns: 1.1fr .9fr; border-radius: var(--radius-md); overflow: hidden; background: var(--green); color: #fff; box-shadow: var(--shadow-soft); }
+    @media (prefers-color-scheme: dark) { .promo { background: #193f2b; } }
+    .promo-main { padding: 32px 36px; display: flex; align-items: center; gap: 20px; }
+    .promo-disc { font-family: var(--serif); font-size: clamp(3rem, 6vw, 5.4rem); line-height: .8; color: var(--gold-soft); letter-spacing: -.05em; }
+    .promo-main h3 { color: #fff; font-family: var(--serif); font-size: 1.65rem; }
+    .promo-main p { margin: 5px 0 0; color: #d6e4dc; }
+    .promo-more { padding: 30px 34px; background: rgba(255,255,255,.08); display: grid; gap: 14px; align-content: center; }
+    .promo-line { display: flex; gap: 10px; align-items: flex-start; color: #eef6f1; }
+    .promo-line span:first-child { color: var(--gold-soft); font-weight: 900; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; }
+    .process-grid::before { content: ""; position: absolute; left: 10%; right: 10%; top: 26px; height: 1px; background: var(--line); z-index: 0; }
+    .step { position: relative; z-index: 1; padding-right: 18px; }
+    .step-number { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); border: 1px solid var(--line); color: var(--green-2); font-family: var(--serif); font-weight: 700; font-size: 1.25rem; box-shadow: 0 0 0 8px var(--bg); }
+    .step h3 { margin-top: 22px; font-family: var(--serif); font-size: 1.5rem; }
+    .step p { margin: 9px 0 0; color: var(--muted); }
+
+    .about { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(38px, 7vw, 80px); align-items: start; }
+    .about-card { background: var(--green); color: #eaf5ed; padding: 34px; border-radius: 8px 34px 8px 34px; position: sticky; top: 94px; box-shadow: var(--shadow); }
+    @media (prefers-color-scheme: dark) { .about-card { background: #173825; } }
+    .about-monogram { font-family: var(--serif); font-size: 4.4rem; line-height: 1; color: var(--gold-soft); margin-bottom: 30px; }
+    .about-card strong { display: block; color: #fff; font-family: var(--serif); font-size: 1.5rem; line-height: 1.2; }
+    .about-card span { display: block; color: #c9ded0; margin-top: 7px; }
+    .about-copy h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 4rem); line-height: 1.03; letter-spacing: -.035em; }
+    .about-copy > p { color: var(--muted); font-size: 1.06rem; margin: 22px 0 28px; }
+    .credentials { display: grid; gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .credential { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 18px 0; background: var(--bg); }
+    .credential dt { color: var(--muted); font-size: .88rem; }
+    .credential dd { margin: 0; font-weight: 700; }
+    .profile-link { display: inline-flex; align-items: center; gap: 7px; color: var(--green-2); font-weight: 800; margin-top: 24px; text-underline-offset: 4px; }
+
+    .faq { background: var(--surface); }
+    .faq-grid { display: grid; grid-template-columns: .65fr 1.35fr; gap: 60px; }
+    .faq h2 { font-family: var(--serif); font-size: clamp(2.3rem, 4vw, 4rem); line-height: 1.04; }
+    .faq-intro { color: var(--muted); margin-top: 16px; }
+    details { border-top: 1px solid var(--line); }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary { list-style: none; cursor: pointer; padding: 22px 42px 22px 0; font-weight: 780; position: relative; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 3px; top: 19px; font-family: var(--serif); font-size: 1.8rem; color: var(--green-2); line-height: 1; }
+    details[open] summary::after { content: "−"; }
+    details p { color: var(--muted); margin: -5px 50px 22px 0; }
+
+    .contact { padding: 86px 0 34px; }
+    .contact-card { background: var(--green); color: #ecf7f0; border-radius: var(--radius-lg); padding: clamp(34px, 6vw, 68px); display: grid; grid-template-columns: 1.08fr .92fr; gap: 50px; align-items: center; overflow: hidden; position: relative; box-shadow: var(--shadow); }
+    @media (prefers-color-scheme: dark) { .contact-card { background: #173825; } }
+    .contact-card::after { content: ""; position: absolute; width: 320px; height: 320px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; right: -130px; bottom: -190px; box-shadow: 0 0 0 55px rgba(255,255,255,.035), 0 0 0 110px rgba(255,255,255,.02); }
+    .contact-card h2 { color: #fff; font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.8rem); line-height: .98; letter-spacing: -.045em; }
+    .contact-card p { color: #cfe0d5; max-width: 600px; margin: 20px 0 0; font-size: 1.04rem; }
+    .contact-box { position: relative; z-index: 1; padding: 26px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-md); }
+    .contact-label { color: #cfe0d5; font-size: .82rem; font-weight: 780; text-transform: uppercase; letter-spacing: .09em; }
+    .phone { display: block; margin: 6px 0 18px; color: #fff; font-family: var(--serif); font-size: clamp(1.75rem, 4vw, 2.65rem); line-height: 1; letter-spacing: -.03em; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-box .button { background: #fff; color: #163824; }
+    .contact-box .button.secondary { background: transparent; border-color: rgba(255,255,255,.35); color: #fff; }
+    .contact-note { font-size: .8rem; margin-top: 14px; color: #cfe0d5; }
+
+    footer { padding: 28px 0 calc(34px + env(safe-area-inset-bottom)); color: var(--muted); font-size: .86rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 24px; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(22px + env(safe-area-inset-bottom));
+      transform: translate(-50%, 20px);
+      z-index: 50;
+      background: var(--ink);
+      color: var(--bg);
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 750;
+      font-size: .88rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+      box-shadow: var(--shadow);
+      max-width: calc(100vw - 32px);
+      text-align: center;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .section-head, .about, .faq-grid, .contact-card { grid-template-columns: 1fr; }
+      .hero { padding-top: 58px; }
+      .hero-grid { gap: 54px; }
+      .hero-visual { max-width: 590px; width: 100%; margin-inline: auto; }
+      .ledger { min-height: 450px; }
+      .section-head { gap: 18px; }
+      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .plan:last-child { grid-column: 1 / -1; }
+      .promo { grid-template-columns: 1fr; }
+      .about-card { position: relative; top: auto; max-width: 440px; }
+      .faq-grid { gap: 28px; }
+    }
+
+    @media (max-width: 680px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .topbar { padding: 9px 0; }
+      .nav { display: none; }
+      .topbar-inner { justify-content: flex-end; }
+      .hero { padding: 44px 0 54px; }
+      h1 { font-size: clamp(3.2rem, 16vw, 4.6rem); }
+      .lead { margin-top: 22px; }
+      .hero-actions .button { width: 100%; }
+      .proof-row { display: grid; gap: 11px; }
+      .ledger { min-height: 0; transform: none; border-radius: 6px 22px 22px 6px; }
+      .ledger-top { padding: 24px 20px 20px 42px; }
+      .ledger-list { padding: 4px 20px 20px 42px; }
+      .ledger-list li { grid-template-columns: 30px 1fr; padding: 16px 0; }
+      .seal { width: 50px; height: 50px; }
+      .gold-tab { position: static; display: block; border-radius: 0; text-align: center; }
+      section { padding: 64px 0; }
+      .section-head { margin-bottom: 30px; }
+      .service-grid, .pricing-grid, .process-grid { grid-template-columns: 1fr; }
+      .service-grid { background: transparent; border: 0; }
+      .service { border-top: 1px solid rgba(255,255,255,.18); padding-inline: 0; }
+      .service:last-child { border-bottom: 1px solid rgba(255,255,255,.18); }
+      .service-num { margin-bottom: 22px; }
+      .plan:last-child { grid-column: auto; }
+      .plan-desc { min-height: 0; }
+      .promo-main { display: block; padding: 30px 24px; }
+      .promo-disc { margin-bottom: 18px; }
+      .promo-more { padding: 24px; }
+      .process-grid { gap: 34px; }
+      .process-grid::before { top: 0; bottom: 0; left: 26px; right: auto; width: 1px; height: auto; }
+      .step { padding-left: 78px; padding-right: 0; min-height: 95px; }
+      .step-number { position: absolute; left: 0; top: 0; box-shadow: 0 0 0 7px var(--bg); }
+      .step h3 { margin-top: 0; }
+      .credential { grid-template-columns: 1fr; gap: 4px; }
+      .contact { padding-top: 64px; }
+      .contact-card { border-radius: 22px; gap: 32px; }
+      .contact-box { padding: 22px; }
+      .contact-actions .button { width: 100%; }
+      .footer-inner { display: grid; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" aria-label="Navegación">
+    <div class="wrap topbar-inner">
+      <nav class="nav" aria-label="Secciones">
+        <a href="#servicios">Servicios</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#proceso">Cómo funciona</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+      <a class="button compact" href="https://wa.me/5353237783?text=Hola%2C%20me%20interesa%20solicitar%20un%20diagn%C3%B3stico%20inicial%20con%20Gesti%C3%B3n%20Eco%20360." target="_blank" rel="noopener noreferrer" aria-label="Solicitar diagnóstico por WhatsApp">Solicitar diagnóstico</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Contabilidad y fiscalidad en Cuba</div>
+          <h1>Control para crecer. <span class="accent">Claridad para decidir.</span></h1>
+          <p class="lead">Servicios contables para TCP y MIPYMEs que necesitan orden, cumplimiento y una lectura útil de sus números; no solo papeles al cierre del mes.</p>
+          <div class="hero-actions">
+            <a class="button" href="#paquetes">Ver paquetes y precios
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <button class="button secondary" type="button" data-copy-number>Copiar WhatsApp</button>
+          </div>
+          <div class="proof-row" aria-label="Datos profesionales">
+            <span class="proof">
+              <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="m7 12 3 3 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/></svg>
+              Actividad autorizada 6920
+            </span>
+            <span class="proof">
+              <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6M8 10h.01M12 10h.01M16 10h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Proyecto registrado No. 1214902
+            </span>
+            <span class="proof">
+              <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+              Cojímar, Habana del Este
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Representación del control contable mensual">
+          <div class="ledger">
+            <div class="ledger-top">
+              <div>
+                <div class="ledger-kicker">Cierre mensual</div>
+                <div class="ledger-title">Cada cifra en su lugar</div>
+              </div>
+              <div class="seal" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <ul class="ledger-list">
+              <li>
+                <span class="checkmark" aria-hidden="true">✓</span>
+                <div><strong>Ingresos registrados</strong><span>Operaciones organizadas y respaldadas.</span></div>
+              </li>
+              <li>
+                <span class="checkmark" aria-hidden="true">✓</span>
+                <div><strong>Gastos clasificados</strong><span>Información lista para revisar y decidir.</span></div>
+              </li>
+              <li>
+                <span class="checkmark" aria-hidden="true">✓</span>
+                <div><strong>Obligaciones controladas</strong><span>Fechas, declaraciones y pagos bajo seguimiento.</span></div>
+              </li>
+              <li>
+                <span class="checkmark" aria-hidden="true">✓</span>
+                <div><strong>Panorama financiero</strong><span>Un cierre que explica cómo va el negocio.</span></div>
+              </li>
+            </ul>
+            <div class="gold-tab">Orden • Cumplimiento • Decisión</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-band" id="servicios">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Menos incertidumbre. Más dirección.</h2>
+          <p>El trabajo contable se convierte en una herramienta de gestión: documentos organizados, obligaciones bajo control y números que ayudan a decidir con tiempo.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service">
+            <div class="service-num">01</div>
+            <h3>Contabilidad ordenada</h3>
+            <p>Registro de operaciones, clasificación documental, conciliaciones y control mensual adaptados a tu actividad.</p>
+          </article>
+          <article class="service">
+            <div class="service-num">02</div>
+            <h3>Cumplimiento fiscal</h3>
+            <p>Preparación y seguimiento de obligaciones tributarias para reducir errores, atrasos y decisiones de última hora.</p>
+          </article>
+          <article class="service">
+            <div class="service-num">03</div>
+            <h3>Lectura del negocio</h3>
+            <p>Resumen claro de ingresos, gastos y resultados para que sepas dónde estás y qué necesita atención.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="paquetes">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>El nivel de apoyo que tu negocio necesita.</h2>
+          <p>Tres puntos de entrada, desde el registro básico hasta la gestión contable integral. El alcance final se confirma en un diagnóstico breve.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="plan">
+            <div class="plan-label">Para empezar con orden</div>
+            <h3>RIG</h3>
+            <div class="price"><strong>2.500</strong><span>CUP / mes<br>desde</span></div>
+            <p class="plan-desc">Para trabajadores por cuenta propia con una operación sencilla.</p>
+            <ul>
+              <li>Registro de Ingresos y Gastos</li>
+              <li>Organización de comprobantes</li>
+              <li>Resumen mensual de movimientos</li>
+              <li>Orientación contable básica</li>
+            </ul>
+            <a class="button secondary plan-action" href="https://wa.me/5353237783?text=Hola%2C%20me%20interesa%20el%20paquete%20RIG%20de%20Gesti%C3%B3n%20Eco%20360.%20%C2%BFPodemos%20conversar%3F" target="_blank" rel="noopener noreferrer">Me interesa RIG</a>
+          </article>
+
+          <article class="plan featured">
+            <div class="plan-badge">Más completo para TCP</div>
+            <div class="plan-label">Gestión mensual</div>
+            <h3>TCP Completo</h3>
+            <div class="price"><strong>15.000</strong><span>CUP / mes<br>desde</span></div>
+            <p class="plan-desc">Control contable y fiscal continuo para una actividad con más movimiento.</p>
+            <ul>
+              <li>Todo lo incluido en RIG</li>
+              <li>Control de obligaciones ante la ONAT</li>
+              <li>Conciliación de movimientos bancarios</li>
+              <li>Soporte por WhatsApp</li>
+              <li>Revisión periódica del cumplimiento</li>
+            </ul>
+            <a class="button plan-action" href="https://wa.me/5353237783?text=Hola%2C%20me%20interesa%20el%20paquete%20TCP%20Completo%20de%20Gesti%C3%B3n%20Eco%20360.%20%C2%BFPodemos%20conversar%3F" target="_blank" rel="noopener noreferrer">Elegir TCP Completo</a>
+          </article>
+
+          <article class="plan">
+            <div class="plan-label">Gestión empresarial</div>
+            <h3>MIPYME</h3>
+            <div class="price"><strong>30.000</strong><span>CUP / mes<br>desde</span></div>
+            <p class="plan-desc">Acompañamiento integral para empresas que necesitan mayor control.</p>
+            <ul>
+              <li>Contabilidad integral del período</li>
+              <li>Conciliaciones y control documental</li>
+              <li>Estados e informes financieros</li>
+              <li>Seguimiento de obligaciones fiscales</li>
+              <li>Atención prioritaria a la dirección</li>
+            </ul>
+            <a class="button secondary plan-action" href="https://wa.me/5353237783?text=Hola%2C%20me%20interesa%20el%20paquete%20MIPYME%20de%20Gesti%C3%B3n%20Eco%20360.%20%C2%BFPodemos%20conversar%3F" target="_blank" rel="noopener noreferrer">Me interesa MIPYME</a>
+          </article>
+        </div>
+
+        <aside class="promo" aria-label="Promociones vigentes">
+          <div class="promo-main">
+            <div class="promo-disc">50%</div>
+            <div>
+              <h3>Primer mes con descuento</h3>
+              <p>Una forma sencilla de empezar, organizar el flujo de trabajo y comprobar el valor del servicio.</p>
+            </div>
+          </div>
+          <div class="promo-more">
+            <div class="promo-line"><span>+</span><span><strong>10% adicional</strong> por pago trimestral.</span></div>
+            <div class="promo-line"><span>+</span><span><strong>500 CUP</strong> por cada referido que firme contrato.</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="proceso">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Un inicio simple, sin rodeos.</h2>
+          <p>Primero se entiende la realidad del negocio. Después se organiza el trabajo y se establece una rutina mensual clara.</p>
+        </div>
+        <div class="process-grid">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Diagnóstico</h3>
+            <p>Revisamos actividad, volumen de operaciones, documentación disponible y obligaciones principales.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Organización</h3>
+            <p>Definimos el paquete, la entrega de documentos, los responsables y el calendario de trabajo.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>Control continuo</h3>
+            <p>Cada mes se registra, revisa y resume la información para mantener el negocio al día.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap about">
+        <aside class="about-card" aria-label="Profesional responsable">
+          <div class="about-monogram">MN</div>
+          <strong>Mario Manuel Nordet Hernández</strong>
+          <span>Economista · Consultor contable y fiscal</span>
+        </aside>
+        <div class="about-copy">
+          <h2>Experiencia económica al servicio de tu negocio.</h2>
+          <p>Gestión Eco 360 combina dirección económica, contabilidad y acompañamiento fiscal para dar respuestas prácticas a TCP y MIPYMEs cubanas.</p>
+          <dl class="credentials">
+            <div class="credential"><dt>Formación</dt><dd>Licenciado en Economía</dd></div>
+            <div class="credential"><dt>Experiencia</dt><dd>Dirección económica y gestión financiera</dd></div>
+            <div class="credential"><dt>Especialidad</dt><dd>Contabilidad, teneduría de libros y consultoría fiscal</dd></div>
+            <div class="credential"><dt>Ubicación</dt><dd>Cojímar, Habana del Este, La Habana</dd></div>
+          </dl>
+          <a class="profile-link" href="https://nordet5809.github.io/GestionEco360-TCP/" target="_blank" rel="noopener noreferrer">Ver perfil profesional
+            <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="preguntas">
+      <div class="wrap faq-grid">
+        <div>
+          <h2>Antes de comenzar.</h2>
+          <p class="faq-intro">Respuestas breves a las dudas más comunes.</p>
+        </div>
+        <div>
+          <details>
+            <summary>¿Cuál paquete me conviene?</summary>
+            <p>Depende del régimen, la cantidad de operaciones, el nivel de documentación y el apoyo que necesites. El diagnóstico inicial permite recomendar el alcance correcto sin pagar de más.</p>
+          </details>
+          <details>
+            <summary>¿Los precios son fijos?</summary>
+            <p>Son tarifas “desde”. La propuesta final se ajusta al volumen de operaciones, la complejidad del trabajo y los servicios incluidos.</p>
+          </details>
+          <details>
+            <summary>¿Qué debo entregar cada mes?</summary>
+            <p>Estados de cuenta, comprobantes de ingresos y gastos, facturas y cualquier documento que respalde las operaciones. Al iniciar, se define una lista y un calendario claros.</p>
+          </details>
+          <details>
+            <summary>¿También realizan trabajos puntuales?</summary>
+            <p>Sí. Regularizaciones, revisiones, declaraciones atrasadas, auditorías internas y consultas específicas pueden cotizarse por proyecto.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="wrap contact-card">
+        <div>
+          <h2>Pon tus números en orden.</h2>
+          <p>Escribe por WhatsApp para coordinar un diagnóstico inicial y recibir una propuesta ajustada a tu negocio.</p>
+        </div>
+        <div class="contact-box">
+          <div class="contact-label">WhatsApp</div>
+          <span class="phone">+53 5323 7783</span>
+          <div class="contact-actions">
+            <a class="button" href="https://wa.me/5353237783?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20servicios%20contables%20de%20Gesti%C3%B3n%20Eco%20360." target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+            <button class="button secondary" type="button" data-copy-number>Copiar número</button>
+          </div>
+          <div class="contact-note">Atención para TCP y MIPYMEs en Cuba.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Gestión Eco 360 · Proyecto registrado No. 1214902</span>
+      <span>Contabilidad · Teneduría de libros · Consultoría fiscal</span>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" id="toast">Número de WhatsApp copiado</div>
+
+  <script>
+    (function () {
+      var number = '+53 5323 7783';
+      var toast = document.getElementById('toast');
+      var toastTimer;
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2400);
+      }
+
+      function copyText(text, successMessage) {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(function () {
+            showToast(successMessage);
+          }).catch(function () {
+            fallbackCopy(text, successMessage);
+          });
+        } else {
+          fallbackCopy(text, successMessage);
+        }
+      }
+
+      function fallbackCopy(text, successMessage) {
+        var area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        try {
+          document.execCommand('copy');
+          showToast(successMessage);
+        } catch (e) {
+          showToast('WhatsApp: ' + number);
+        }
+        document.body.removeChild(area);
+      }
+
+      document.querySelectorAll('[data-copy-number]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          copyText(number, 'Número de WhatsApp copiado');
+        });
+      });
+
+    }());
+  </script>
+</body>
+</html>
