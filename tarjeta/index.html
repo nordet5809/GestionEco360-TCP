@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Mario Nordet — Gestión Eco 360 · Tarjeta digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --ink: #1a1a1a;
+        --ink-2: #5c5c5c;
+        --paper: #f5f5f5;
+        --card: #ffffff;
+        --cream: #e8e2d5;
+        --accent: #5c6b3e;
+        --accent-dark: #47542f;
+        --line: #e3e0d8;
+        --page-bg: #eceae4;
+        --shadow: 0 24px 60px rgba(26, 26, 26, 0.18), 0 4px 14px rgba(26, 26, 26, 0.1);
+        --head-bg: #1a1a1a;
+        --head-fg: #ffffff;
+        --head-sub: #c9c4b8;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --ink: #f2f0ea;
+          --ink-2: #b9b4a8;
+          --paper: #171716;
+          --card: #232320;
+          --line: #3a3a35;
+          --page-bg: #101010;
+          --accent: #93a568;
+          --accent-dark: #7d9055;
+          --shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 4px 14px rgba(0, 0, 0, 0.4);
+          --head-bg: #0d0d0c;
+          --head-sub: #a9a396;
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        background: var(--page-bg);
+        color: var(--ink);
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: clamp(14px, 4vw, 44px) 14px 40px;
+        -webkit-font-smoothing: antialiased;
+      }
+      .card {
+        width: 100%;
+        max-width: 430px;
+        background: var(--card);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      /* ---------- Cabecera ---------- */
+      .head {
+        background: var(--head-bg);
+        color: var(--head-fg);
+        padding: 30px 28px 26px;
+        position: relative;
+      }
+      .head::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          -45deg,
+          transparent 0 14px,
+          rgba(255, 255, 255, 0.045) 14px 15px
+        );
+        pointer-events: none;
+      }
+      .brand-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+      }
+      .monogram {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        border: 1.5px solid var(--cream);
+        color: var(--cream);
+        padding: 7px 11px;
+        border-radius: 4px;
+      }
+      .reg {
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--head-sub);
+        text-align: right;
+        line-height: 1.5;
+      }
+      .name {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: clamp(26px, 7vw, 31px);
+        line-height: 1.15;
+        margin: 24px 0 4px;
+        position: relative;
+        z-index: 1;
+      }
+      .role {
+        font-size: 14.5px;
+        color: var(--cream);
+        margin: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .firm {
+        font-size: 13px;
+        color: var(--head-sub);
+        margin: 10px 0 0;
+        position: relative;
+        z-index: 1;
+      }
+      .firm strong { color: #ffffff; font-weight: 600; }
+
+      /* ---------- Cuerpo ---------- */
+      .body { padding: 24px 28px 28px; }
+      .tagline {
+        font-family: "Poppins", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0 0 18px;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 13px 10px;
+        border-radius: 10px;
+        font-size: 14.5px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        color: var(--ink);
+        background: var(--card);
+        cursor: pointer;
+        font-family: inherit;
+        transition: transform 0.12s ease, background 0.12s ease;
+      }
+      .btn:active { transform: scale(0.97); }
+      .btn svg { width: 19px; height: 19px; flex: none; }
+      .btn-wa {
+        grid-column: 1 / -1;
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #ffffff;
+      }
+      .btn-wa:active { background: var(--accent-dark); }
+      .saved-note {
+        grid-column: 1 / -1;
+        margin: 2px 0 0;
+        font-size: 13px;
+        color: var(--accent);
+        text-align: center;
+        min-height: 0;
+      }
+
+      .section-title {
+        font-family: "Poppins", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-2);
+        margin: 0 0 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+      }
+      .services { list-style: none; margin: 0 0 26px; padding: 0; }
+      .services li {
+        display: flex;
+        gap: 11px;
+        align-items: flex-start;
+        padding: 7px 0;
+        font-size: 14.5px;
+        line-height: 1.45;
+      }
+      .services svg {
+        width: 17px; height: 17px; flex: none;
+        color: var(--accent);
+        margin-top: 2px;
+      }
+
+      .contact { list-style: none; margin: 0 0 26px; padding: 0; }
+      .contact li { border-bottom: 1px solid var(--line); }
+      .contact li:last-child { border-bottom: none; }
+      .contact a, .contact span.row {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        padding: 11px 2px;
+        text-decoration: none;
+        color: var(--ink);
+        font-size: 14.5px;
+      }
+      .contact svg { width: 19px; height: 19px; flex: none; color: var(--accent); }
+      .contact .label {
+        display: block;
+        font-size: 11.5px;
+        color: var(--ink-2);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 1px;
+      }
+      .contact .value { font-weight: 500; overflow-wrap: anywhere; }
+
+      .qr-block {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 24px;
+      }
+      .qr-block img {
+        width: 104px; height: 104px;
+        border-radius: 8px;
+        flex: none;
+        background: #ffffff;
+      }
+      .qr-block p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-2); }
+      .qr-block strong { color: var(--ink); display: block; font-size: 14.5px; margin-bottom: 3px; }
+      .qr-block a { color: var(--accent); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+
+      .social { display: flex; gap: 10px; }
+      .social a {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        padding: 11px 6px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 13.5px;
+        font-weight: 600;
+      }
+      .social svg { width: 18px; height: 18px; flex: none; }
+
+      .foot {
+        margin-top: 22px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--ink-2);
+        line-height: 1.6;
+      }
+      .foot .seal {
+        display: inline-block;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 4px 12px;
+        font-size: 11.5px;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+      }
+
+      /* ---------- Ventana ---------- */
+      .flip { perspective: 1400px; width: 100%; max-width: 430px; }
+      .flip-inner {
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.65s cubic-bezier(0.3, 0.7, 0.3, 1);
+      }
+      .flip.flipped .flip-inner { transform: rotateY(180deg); }
+      .face {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+      .face-back {
+        position: absolute;
+        inset: 0;
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .flip-inner { transition: none; }
+        .btn { transition: none; }
+      }
+
+      .back-head {
+        background: var(--head-bg);
+        color: var(--head-fg);
+        padding: 26px 28px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .back-head::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          -45deg,
+          transparent 0 14px,
+          rgba(255, 255, 255, 0.045) 14px 15px
+        );
+        pointer-events: none;
+      }
+      .back-head .monogram { display: inline-block; position: relative; z-index: 1; }
+      .back-head h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        margin: 16px 0 2px;
+        position: relative;
+        z-index: 1;
+      }
+      .back-head p { margin: 0; font-size: 13px; color: var(--head-sub); position: relative; z-index: 1; }
+      .back-body { padding: 24px 28px 26px; flex: 1; display: flex; flex-direction: column; }
+      .back-qr { text-align: center; margin: 6px 0 24px; }
+      .back-qr img { width: 196px; height: 196px; border-radius: 10px; background: #fff; }
+      .back-qr p { font-size: 13px; color: var(--ink-2); margin: 12px 0 0; }
+      .back-note { font-size: 14.5px; color: var(--ink-2); line-height: 1.6; margin: 0 0 22px; }
+      .back-note strong { color: var(--ink); }
+      .back-services { list-style: none; margin: 0 0 24px; padding: 0; }
+      .back-services li {
+        display: flex; gap: 11px; align-items: flex-start;
+        padding: 8px 0; font-size: 14.5px; line-height: 1.45;
+        border-bottom: 1px solid var(--line);
+      }
+      .back-services li:last-child { border-bottom: none; }
+      .back-services svg { width: 17px; height: 17px; flex: none; color: var(--accent); margin-top: 2px; }
+      .offer-box {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--accent);
+        border-radius: 10px;
+        padding: 15px 17px;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--ink-2);
+        margin: 0 0 24px;
+      }
+      .offer-box strong { color: var(--ink); }
+
+      .flip-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        max-width: 430px;
+        margin: 16px auto 0;
+        padding: 12px;
+        background: transparent;
+        border: 1px solid var(--ink-2);
+        border-radius: 999px;
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .flip-toggle svg { width: 17px; height: 17px; }
+      .wrap { width: 100%; max-width: 430px; }
+      @media (max-width: 400px) {
+        .actions .btn { font-size: 13.5px; padding: 12px 6px; gap: 6px; }
+        .body { padding: 22px 22px 26px; }
+        .head { padding: 26px 22px 22px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="flip" id="flip">
+        <div class="flip-inner" id="flipInner">
+
+          <!-- ============ ANVERSO ============ -->
+          <div class="card face face-front">
+            <header class="head">
+              <div class="brand-row">
+                <span class="monogram">GE360</span>
+                <span class="reg">Proyecto TCP No. 1214902<br />Cojímar · La Habana</span>
+              </div>
+              <h1 class="name">Mario Manuel<br />Nordet Hernández</h1>
+              <p class="role">Licenciado en Economía · Consultor Integral de Negocios</p>
+              <p class="firm"><strong>Gestión Eco 360</strong> — Contabilidad, fiscalidad y estrategia financiera para TCP y MIPYMES</p>
+            </header>
+
+            <div class="body">
+              <p class="tagline">Estrategia · Integridad · Crecimiento</p>
+
+              <div class="actions">
+                <a class="btn btn-wa" href="https://wa.me/5353237783?text=Hola%20Mario%2C%20vi%20tu%20tarjeta%20digital%20y%20quiero%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20Gesti%C3%B3n%20Eco%20360." target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.9-4.45 9.9-9.91C21.94 6.45 17.5 2 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.58 1.81-1.13.35-.56.35-1.03.25-1.13-.11-.1-.23-.16-.48-.29z"/></svg>
+                  Escríbeme por WhatsApp
+                </a>
+                <a class="btn" href="tel:+5353237783">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  Llamar
+                </a>
+                <button class="btn" id="saveContact" type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+                  Guardar contacto
+                </button>
+                <p class="saved-note" id="savedNote" hidden>Contacto descargado: ábrelo para guardarlo en tu agenda.</p>
+              </div>
+
+              <h2 class="section-title">Servicios</h2>
+              <ul class="services">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                  Teneduría de libros y contabilidad completa
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>
+                  Gestión fiscal y obligaciones ante la ONAT
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+                  Estrategia financiera y flujo de caja
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
+                  Formalización y puesta en marcha de MIPYMES
+                </li>
+              </ul>
+
+              <h2 class="section-title">Contacto</h2>
+              <ul class="contact">
+                <li>
+                  <a href="tel:+5353237783">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                    <span><span class="label">Teléfono / WhatsApp</span><span class="value">+53 5323 7783</span></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:nordet5809@gmail.com">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                    <span><span class="label">Correo</span><span class="value">nordet5809@gmail.com</span></span>
+                  </a>
+                </li>
+                <li>
+                  <span class="row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span><span class="label">Cobertura</span><span class="value">Cojímar, Habana del Este · Remoto en toda Cuba</span></span>
+                  </span>
+                </li>
+                <li>
+                  <a href="https://nordet5809.github.io/GestionEco360-TCP/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span><span class="label">Página web</span><span class="value">nordet5809.github.io/GestionEco360-TCP</span></span>
+                  </a>
+                </li>
+              </ul>
+
+              <div class="qr-block">
+                <img src="data:image/png;base64,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" alt="Código QR hacia la página web de Gestión Eco 360" width="104" height="104" />
+                <p>
+                  <strong>Escanea y conoce más</strong>
+                  El código QR abre la página de Gestión Eco 360, con paquetes, precios y calculadora de tarifas.
+                  <a href="https://nordet5809.github.io/GestionEco360-TCP/" target="_blank" rel="noopener">Abrir la página</a>
+                </p>
+              </div>
+
+              <div class="social">
+                <a href="https://youtube.com/@marionordethernandez7784" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+                  YouTube
+                </a>
+                <a href="https://www.instagram.com/mariomanuelnordethernandez" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+                  Instagram
+                </a>
+                <a href="https://www.facebook.com/share/19t441N4pC/" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+                  Facebook
+                </a>
+              </div>
+
+              <div class="foot">
+                <span class="seal">Actividad 6920 · ONAT</span><br />
+                Contabilidad, teneduría de libros y auditoría · Consultoría fiscal
+              </div>
+            </div>
+          </div>
+
+          <!-- ============ REVERSO ============ -->
+          <div class="card face face-back" aria-hidden="true">
+            <div class="back-head">
+              <span class="monogram">GE360</span>
+              <h2>Gestión Eco 360</h2>
+              <p>Consultoría integral de negocio</p>
+            </div>
+            <div class="back-body">
+              <div class="back-qr">
+                <img src="data:image/png;base64,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" alt="Código QR hacia la página web de Gestión Eco 360" width="196" height="196" />
+                <p>Apunta la cámara y abre mi página web</p>
+              </div>
+              <p class="back-note">
+                <strong>¿Tu negocio vende pero el dinero no alcanza?</strong>
+                Ordeno tu contabilidad, cumplo tus obligaciones con la ONAT y te ayudo a ver con claridad a dónde va cada peso. Atención presencial en Cojímar y remota en toda Cuba.
+              </p>
+
+              <h2 class="section-title">Qué puedo hacer por tu negocio</h2>
+              <ul class="back-services">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  Contabilidad al día, sin atrasos ni sustos con la ONAT
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  Declaraciones y pagos de tributos en fecha
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  Control de tu flujo de caja y de tus costos
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  Acompañamiento para formalizar tu MIPYME
+                </li>
+              </ul>
+
+              <div class="offer-box">
+                <strong>Oferta de bienvenida:</strong> primer mes con <strong>50&nbsp;% de descuento</strong> y <strong>10&nbsp;% adicional</strong> por pago trimestral anticipado.
+              </div>
+
+              <a class="btn btn-wa" href="https://wa.me/5353237783?text=Hola%20Mario%2C%20vi%20tu%20tarjeta%20digital%20y%20quiero%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20Gesti%C3%B3n%20Eco%20360." target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.9-4.45 9.9-9.91C21.94 6.45 17.5 2 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.58 1.81-1.13.35-.56.35-1.03.25-1.13-.11-.1-.23-.16-.48-.29z"/></svg>
+                Escríbeme por WhatsApp
+              </a>
+
+              <div class="foot" style="margin-top:auto; padding-top:22px;">
+                Mario Manuel Nordet Hernández<br />
+                +53 5323 7783 · nordet5809@gmail.com
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="flip-toggle" id="flipToggle" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        <span id="flipLabel">Ver el reverso</span>
+      </button>
+    </div>
+
+    <script>
+      (function () {
+        // --- Guardar contacto (vCard) ---
+        var vcard = [
+          "BEGIN:VCARD",
+          "VERSION:3.0",
+          "N:Nordet Hernández;Mario Manuel;;;",
+          "FN:Mario Manuel Nordet Hernández",
+          "ORG:Gestión Eco 360",
+          "TITLE:Consultor Integral de Negocios",
+          "TEL;TYPE=CELL,VOICE:+5353237783",
+          "EMAIL;TYPE=INTERNET:nordet5809@gmail.com",
+          "URL:https://nordet5809.github.io/GestionEco360-TCP/",
+          "ADR:;;;Cojímar, Habana del Este;La Habana;;Cuba",
+          "NOTE:Contabilidad, fiscalidad y estrategia financiera para TCP y MIPYMES. Actividad 6920 · Proyecto TCP No. 1214902.",
+          "END:VCARD"
+        ].join("\r\n");
+
+        document.getElementById("saveContact").addEventListener("click", function () {
+          var blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement("a");
+          a.href = url;
+          a.download = "Mario-Nordet-Gestion-Eco-360.vcf";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+          document.getElementById("savedNote").hidden = false;
+        });
+
+        // --- Giro de la tarjeta ---
+        var flip = document.getElementById("flip");
+        var inner = document.getElementById("flipInner");
+        var toggle = document.getElementById("flipToggle");
+        var label = document.getElementById("flipLabel");
+        var front = flip.querySelector(".face-front");
+        var back = flip.querySelector(".face-back");
+        var flipped = false;
+
+        function syncHeight() {
+          // La cara trasera es absoluta: la altura la manda el anverso,
+          // salvo que el reverso sea más alto (pantallas muy estrechas).
+          inner.style.height = "";
+          var fh = front.offsetHeight;
+          var bh = back.offsetHeight;
+          inner.style.height = Math.max(fh, bh) + "px";
+        }
+
+        function setFlipped(v) {
+          flipped = v;
+          flip.classList.toggle("flipped", v);
+          toggle.setAttribute("aria-pressed", v ? "true" : "false");
+          label.textContent = v ? "Ver el anverso" : "Ver el reverso";
+          back.setAttribute("aria-hidden", v ? "false" : "true");
+          front.setAttribute("aria-hidden", v ? "true" : "false");
+        }
+
+        toggle.addEventListener("click", function () { setFlipped(!flipped); });
+        window.addEventListener("resize", syncHeight);
+        window.addEventListener("load", syncHeight);
+        syncHeight();
+        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(syncHeight); }
+      })();
+    </script>
+  </body>
+</html>
