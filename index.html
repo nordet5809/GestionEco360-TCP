@@ -472,13 +472,13 @@
 
 <script>
 /* Tasa de referencia: tipo de cambio del segmento III del BCC (CUP por USD).
-   Valor de respaldo: 820 (12/11/2026), última tasa verificada.
+   Valor de respaldo: 825 (13/11/2026), última tasa verificada.
    Al cargar, se intenta leer tasas.json —actualizado a diario por automatización
    (GitHub Actions, .github/workflows/actualizar-tasa.yml)—
    y se recalculan las equivalencias con la tasa que traiga. Si la lectura falla,
    la página conserva el valor de respaldo, sin error visible. */
-var TASA_BCC = 820;
-var FECHA_TASA = "12/11/2026";
+var TASA_BCC = 825;
+var FECHA_TASA = "13/11/2026";
 function fmt(n, dec){ return n.toLocaleString('es-CU', {minimumFractionDigits:dec, maximumFractionDigits:dec}); }
 function aplicarTasa(){
   document.querySelectorAll('.plan .price').forEach(function(el){
