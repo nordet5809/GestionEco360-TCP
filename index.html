@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gestión Eco 360 — Propuesta de rediseño | Mario Nordet Hernández</title>
+<title>Gestión Eco 360 — Contabilidad, impuestos y finanzas para TCP y MIPYMES | Mario Nordet Hernández</title>
+<meta name="description" content="Contabilidad, gestión tributaria ante la ONAT y estrategia financiera para trabajadores por cuenta propia y MIPYMES en Cuba. Más de 30 años de experiencia. Cojímar, La Habana.">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   :root { --ink:#1A1A1A; --gray:#5C5C5C; --bg:#F5F5F5; --cta:#5C6B3E; --sand:#E8E2D5; }
@@ -471,12 +472,13 @@
 
 <script>
 /* Tasa de referencia: tipo de cambio del segmento III del BCC (CUP por USD).
-   Valor de respaldo: 734 (22/10/2026), calculado sin conexión.
-   Al cargar, se intenta leer tasas.json —actualizado a diario por automatización—
+   Valor de respaldo: 820 (12/11/2026), última tasa verificada.
+   Al cargar, se intenta leer tasas.json —actualizado a diario por automatización
+   (GitHub Actions, .github/workflows/actualizar-tasa.yml)—
    y se recalculan las equivalencias con la tasa que traiga. Si la lectura falla,
    la página conserva el valor de respaldo, sin error visible. */
-var TASA_BCC = 734;
-var FECHA_TASA = "22/10/2026";
+var TASA_BCC = 820;
+var FECHA_TASA = "12/11/2026";
 function fmt(n, dec){ return n.toLocaleString('es-CU', {minimumFractionDigits:dec, maximumFractionDigits:dec}); }
 function aplicarTasa(){
   document.querySelectorAll('.plan .price').forEach(function(el){
